@@ -5,9 +5,9 @@ states, context and HTTP communication, as well as the possibility of creating c
 
 This demo works as a movie catalogue, with two main functions/pages:
 
-1. Show a list of movies on the front page. The list contains recently trending movies, it is possible to get additional details in a popup by clicking a movie in the list.
-2. Allow the user to search for movies by title; the user can filter search results on genre and release year, and sort on release year, title and popularity. 
-It is also possible to get additional details in a popu by clickinga search result.
+1. Show a list of movies on the front page. The list contains recently trending movies, and it is possible to get additional details in a popup by clicking a movie in the list.
+2. Allow the user to search for movies by title; the user can filter search results on genre and release year, and sort on release year, title and popularity.__ 
+It is also possible to get additional details in a popup by clicking a search result.
 
 The project utilizes The Movie Database API, which requires you to provide an API key to access. Please follow below instructions to set up the project.
 
@@ -21,7 +21,7 @@ The project utilizes The Movie Database API, which requires you to provide an AP
 
 Once these steps have been taken, you should be able to run this project.
 
-For more information on the API, [click here](https://www.themoviedb.org/documentation/api)
+For more information on the API, [click here](https://www.themoviedb.org/documentation/api)__
 For developer documentation, [click here](https://developers.themoviedb.org/3)
 
 ## Available Scripts
