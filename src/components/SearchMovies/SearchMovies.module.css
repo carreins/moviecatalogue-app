@@ -1,0 +1,28 @@
+.container {
+    width: 600px;
+    display: inline-block;
+    padding: 0 40px;
+    height: 100%;
+}
+
+.container ul {
+    margin-top: 5px;
+    list-style: none;
+    padding-left: 0;
+    height: calc(100vh - 240px);
+    overflow: auto;
+    padding-top: 10px;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.links button {
+    color: #0d6efd;
+    text-decoration: underline;
+    background-color: transparent;
+    border-width: 0;
+}

@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    padding: 5px 7px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.container:hover {
+    background-color: rgba(123, 123, 123, 0.3);
+}
+
+.container h3 {
+    text-align: left;
+    padding-right: 5px;
+}
+
+.container span {
+    margin-right: 5px;
+}

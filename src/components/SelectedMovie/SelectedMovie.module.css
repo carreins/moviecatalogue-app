@@ -1,0 +1,51 @@
+.container {
+    text-align: center;
+    overflow: auto;
+}
+
+.subheader span {
+    display: block;
+    font-weight: bolder;
+}
+
+@media (max-height: 1100px) {
+    .container {
+        height: 600px;
+    }
+}
+
+@media (max-height: 800px) {
+    .container {
+        height: 400px;
+    }
+}
+
+.tab {
+    height: 50px;
+    width: 400px;
+    display: inline-flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+.tab-item {
+    width: 100%;
+    font-size: 25px;
+    line-height: 45px;
+    background-color: rgb(57, 57, 240);
+    margin: 0 2px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tab-item:hover, .tab-active {
+    color: white
+}
+
+.tab-item:active{
+    background-color: rgb(21, 21, 202);
+}
+
+.container p {
+    padding: 0 30px;
+}
