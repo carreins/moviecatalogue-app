@@ -3,6 +3,27 @@
 This is a simplified web application, created to demonstrate various capabilities of the ReactJS library, such as use of
 states, context and HTTP communication, as well as the possibility of creating custom hooks and components for usage in a web application.
 
+This demo works as a movie catalogue, with two main functions/pages:
+
+1. Show a list of movies on the front page. The list contains recently trending movies, it is possible to get additional details in a popup by clicking a movie in the list.
+2. Allow the user to search for movies by title; the user can filter search results on genre and release year, and sort on release year, title and popularity. 
+It is also possible to get additional details in a popu by clickinga search result.
+
+The project utilizes The Movie Database API, which requires you to provide an API key to access. Please follow below instructions to set up the project.
+
+### How to use
+1. Create a new account on The Movie Database website: https://www.themoviedb.org/
+2. Once you have logged in, you can apply for an API key by clicking the "API" link from the left hand sidebar within your account settings page. You need to have a legitimate business name, address, phone number and description to apply for an API key. Once your request has been approved, you will receive the key.
+3. Create an environment and add 3 parameters:
+    - REACT_APP_API_URL with value https://api.themoviedb.org
+    - REACT_APP_API_VERSION with value 3
+    - REACT_APP_API_KEY, which will hold the value of your received API key
+
+Once these steps have been taken, you should be able to run this project.
+
+For more information on the API, [click here](https://www.themoviedb.org/documentation/api)
+For developer documentation, [click here](https://developers.themoviedb.org/3)
+
 ## Available Scripts
 
 In the project directory, you can run:
