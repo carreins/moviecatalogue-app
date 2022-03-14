@@ -18,7 +18,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 /*IMPORTS END */
 
 
-//Component to load details of selected movie
 const SelectedMovie = props => {
 
     //Deconstruct props to get id for selected movie

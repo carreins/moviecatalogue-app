@@ -73,7 +73,7 @@ const searchReducer = (state, action) => {
 const handleFilterResults = (data, filter) => {
     let filteredData; 
 
-    if(data){
+    if(data) {
 
         filteredData = [...data];
 
@@ -113,6 +113,8 @@ const handleFilterResults = (data, filter) => {
                 }
             }
             if(filter.sort && filter.sort.type && filter.sort.direction) {
+
+                //If filter has sorting type and direction, sort filtered results 
                 const { type, direction } = filter.sort;
 
                 filteredData = filteredData.sort((a, b) => {

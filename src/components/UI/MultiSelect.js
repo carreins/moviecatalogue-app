@@ -1,12 +1,31 @@
+/*IMPORTS */
+/*React module dependecies */
 import Multiselect from "multiselect-react-dropdown";
 
+/*Component stylesheet */
 import classes from "./MultiSelect.module.css";
 
+/*IMPORTS END */
+
 const MultiSelect = props => {
+
+    //Deconstruct props to access properties
     const { label, options, selectedOptions, displayValue, onChange } = props;
-    const listHandler = (a, b) => {
-        onChange(a);
+
+
+    /*Functions */
+    //listHandler function
+    //Handles all changes connected to Multiselect component;
+    //List of currently selected values are returned to onChange property, if this is set
+    const listHandler = (selectedList, currentValue) => {
+
+        if(onChange){
+            onChange(selectedList);
+        }
     }
+
+
+    /*Content */
     return (
         <div className={classes.container}>
             {label && <label>{label}</label>}

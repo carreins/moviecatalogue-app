@@ -46,8 +46,6 @@ const SearchFilter = () => {
     //selectSortTypeHandler function
     const selectSortTypeHandler = (event) => {
 
-
-        
         //If onFilter is set, execute
         if(onFilter) {
             onFilter('sort_type', event.target.selectedIndex > 0 ? event.target.value : undefined);

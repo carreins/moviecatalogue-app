@@ -1,5 +1,5 @@
 /*IMPORTS */
-/*React and React module dependencies*/
+/*React module dependencies*/
 import { useState, useEffect } from "react";
 
 /*Custom component */

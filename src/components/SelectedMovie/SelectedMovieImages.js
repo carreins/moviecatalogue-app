@@ -8,7 +8,6 @@ import classes from "./SelectedMovieImages.module.css";
 /*IMPORTS END */
 
 
-//Component used to display images associated with this movie
 const SelectedMovieImages = props => {
 
     //Deconstruct props.movie to get component objects

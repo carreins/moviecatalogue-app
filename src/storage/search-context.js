@@ -69,6 +69,8 @@ export const SearchContextProvider = props => {
         searchDispatcher({type: 'FILTER', filter})
     };
 
+    //searchHandler function
+    //Used to update search results
     const searchHandler = (data, loading) => {
         searchDispatcher({type: 'REFRESH', data: data, isLoading: loading, filter});
     }
@@ -102,6 +104,7 @@ export const SearchContextProvider = props => {
 
 
     /*Content */
+    //Return Provider object for SearchContext
     return (
         <SearchContext.Provider value={{
             filter,

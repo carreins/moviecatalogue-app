@@ -21,7 +21,6 @@ import { ReactComponent as CrossIcon } from "./Icons/cross.svg";
 /*IMPORTS END */
 
 
-//Component for searching movies in search page, and filtering results according to release year and genres
 const SearchInput = React.forwardRef((props, ref) => {
 
     //Deconstruct props to access objects
