@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# About this project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simplified web application, created to demonstrate various capabilities of the ReactJS library, such as use of
+states, context and HTTP communication, as well as the possibility of creating custom hooks and components for usage in a web application.
 
 ## Available Scripts
 
