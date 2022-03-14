@@ -2,7 +2,7 @@
 /*IMPORTS */
 /*React and React module dependencies*/
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 /*Custom components */
 import SearchFilter from "./SearchFilter";
@@ -10,6 +10,8 @@ import SearchFilter from "./SearchFilter";
 /*Custom UI components */
 import Card from "../UI/Card";
 import Modal from "../UI/Modal";
+
+import { SearchContext } from "../../storage/search-context";
 
 /*Component stylesheet import */
 import classes from "./SearchInput.module.css";
@@ -32,6 +34,14 @@ const SearchInput = React.forwardRef((props, ref) => {
     const [inputValue, setInputValue] = useState('');
 
 
+    /*useContext */
+    //Fetch filter; use it to check if there is an active filter on the page
+    const { filter } = useContext(SearchContext);
+    const isFilterDefined = filter && ((filter.genres && filter.genres.length > 0 && filter.genres.some(r => r.selected)) || 
+                                        (filter.years && filter.years.length > 0 && filter.years.some(r => r.selected)) || 
+                                        (filter.sort && filter.sort.type && filter.sort.direction));
+
+
     /*Functions */
     //changeHandler function
     const changeHandler = (event) => {
@@ -51,7 +61,7 @@ const SearchInput = React.forwardRef((props, ref) => {
             {isFilter && <button className={classes["go-back"]} onClick={() => setIsFilter(false)}>{'<= Tilbake'}</button>}
             <div className={classes.icons}>
                 {addedText && <CrossIcon onClick={() => { setInputValue(''); onChange(''); }}/>}
-                {!isFilter && <FilterIcon onClick={() => setIsFilter(true)}/>}
+                {!isFilter && <FilterIcon fill={isFilterDefined ? "lightgreen" : "black"} onClick={() => setIsFilter(true)}/>}
             </div>
             {isFilter && <h3>Avansert søk</h3>}
             <div className={classes.search}>

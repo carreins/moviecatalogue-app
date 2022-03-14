@@ -12,6 +12,9 @@ import { SearchContext } from "../../storage/search-context";
 /*Component stylesheet */
 import classes from "./SearchFilter.module.css";
 
+/*SVG icon import */
+import { ReactComponent as ResetIcon } from "./Icons/reset.svg";
+
 /*IMPORTS END */
 
 const SearchFilter = () => {
@@ -20,8 +23,8 @@ const SearchFilter = () => {
     const { filter, onFilter } = useContext(SearchContext);
     const selectedYears = filter.years.filter(year => year.selected);
     const selectedGenres = filter.genres.filter(genre => genre.selected);
-    const selectedSortType = filter.sort?.type;
-    const selectedSortDirection = filter.sort?.direction;
+    const selectedSortType = filter.sort && filter.sort.type ? filter.sort.type : '';
+    const selectedSortDirection = filter.sort && filter.sort.direction ? filter.sort.direction : '';
 
 
     /*Functions */
@@ -61,11 +64,24 @@ const SearchFilter = () => {
         }
     }
 
+    //resetHandler function
+    //Reset and clear filter
+    const resetHandler = () => {
+
+        //If onFilter is set, execute
+        if(onFilter) {
+            onFilter('reset');
+        }
+    }
+
 
     /*Content */
     return (
         <>
-            <h3>Filter</h3>
+            <div className={classes.header}>
+                <h3>Filter</h3>
+                <ResetIcon onClick={resetHandler}/>
+            </div>
             <Container>
                 <Row className={classes["sort-container"]}>
                     <label>Sorter</label>
@@ -73,7 +89,7 @@ const SearchFilter = () => {
                         <Row>
                             <Col md="6">
                                 <select onChange={selectSortTypeHandler} value={selectedSortType}>
-                                    <option value={null}>Velg type</option>
+                                    <option value={''}>Velg type</option>
                                     <option value={'title'}>Tittel</option>
                                     <option value={'release_year'}>Utgivelsesår</option>
                                     <option value={'popularity'}>Popularitet</option>
@@ -81,7 +97,7 @@ const SearchFilter = () => {
                             </Col>
                             <Col md="6">
                                 <select onChange={selectSortDirectionHandler} value={selectedSortDirection}>
-                                    <option value={null}>Velg retning</option>
+                                    <option value={''}>Velg retning</option>
                                     <option value={'asc'}>Stigende</option>
                                     <option value={'desc'}>Synkende</option>
                                 </select>

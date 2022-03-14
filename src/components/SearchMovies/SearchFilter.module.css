@@ -1,3 +1,18 @@
+.header {
+    display: flex;
+    column-gap: 10px;
+}
+
+.header svg {
+    padding: 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.header svg:hover {
+    background-color: rgba(156, 154, 154, 0.3);
+}
+
 .sort-container {
     margin-bottom: 10px;
 }

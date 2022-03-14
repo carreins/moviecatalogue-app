@@ -65,3 +65,65 @@ export const useCountdownTimer = (time) => {
         isComplete
     }
 }
+
+
+export const filterExistsInStorage = () => {
+    let filterString = localStorage.getItem('search_movie_filter');
+
+    if(!filterString)
+        return false;
+    else 
+        return true;
+}
+
+
+export const getFilterFromStorage = (filter) => {
+    if(!filter || !filter.years || !filter.genres){
+        return;
+    }
+
+    let copyFilter = {...filter};
+
+    let filterString = localStorage.getItem('search_movie_filter');
+
+    if(filterString){
+        const storedFilter = JSON.parse(filterString);
+
+        if(storedFilter) {
+            try {
+                copyFilter.years = copyFilter.years.map(year => {
+                    return {...year, selected: storedFilter.years.some(r => r.value === year.value)}
+                })
+                copyFilter.genres = copyFilter.genres.map(genre => {
+                    return {...genre, selected: storedFilter.genres.some(r => r.id === genre.id)}
+                })
+                copyFilter["sort"] = storedFilter.sort;
+            } catch(err) {
+                console.log(err ? err.message : 'An error occurred.'); 
+                return;
+            }
+        }
+    }
+
+    return copyFilter;
+}
+
+
+export const updateFilterInStorage = (filter) => {
+    if(!filter){
+        localStorage.removeItem('search_movie_filter');
+        return;
+    }
+
+    try{
+        let filterObj = {
+            years: filter.years.filter(year => year.selected),
+            genres: filter.genres.filter(genre => genre.selected),
+            sort: filter.sort,
+        }
+
+        localStorage.setItem('search_movie_filter', JSON.stringify(filterObj));
+    } catch(err) {
+        console.log(err ? err.message : 'An error occurred.'); 
+    }
+}

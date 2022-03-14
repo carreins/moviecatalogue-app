@@ -11,6 +11,7 @@ import { useState, useEffect, useCallback } from "react";
 
 /*Custom hooks */
 import { useGetGenresFromAPI } from "../hooks/http-additional-hooks";
+import { filterExistsInStorage, getFilterFromStorage, updateFilterInStorage } from "../hooks/helper-hooks";
 import useSearchReducer from "../reducer/search-reducer";
 
 /*IMPORTS END */
@@ -55,14 +56,22 @@ export const SearchContextProvider = props => {
     //Used to update filters based on received type and data
     const filterHandler = (type, data) => {
         setFilter(prev => {
-            if(type === 'year') {
-                prev.years = prev.years.map(year => ({...year, selected: data.some(r => r.id === year.id)}));
-            } else if(type === 'genre') {
-                prev.genres = prev.genres.map(genre => ({...genre, selected: data.some(r => r.id === genre.id)}))
-            } else if(type === 'sort_type') {
-                prev.sort = prev.sort ? {...prev.sort, type: data} : {type: data}
-            } else if(type === 'sort_direction') {
-                prev.sort = prev.sort ? {...prev.sort, direction: data} : {direction: data}
+            if(type === 'reset') {
+                updateFilterInStorage();
+                prev.years = prev.years.map(year => ({...year, selected: false}));
+                prev.genres = prev.genres.map(genre => ({...genre, selected: false}));
+                prev.sort = {};
+            } else {
+                if(type === 'year') {
+                    prev.years = prev.years.map(year => ({...year, selected: data.some(r => r.id === year.id)}));
+                } else if(type === 'genre') {
+                    prev.genres = prev.genres.map(genre => ({...genre, selected: data.some(r => r.id === genre.id)}))
+                } else if(type === 'sort_type') {
+                    prev.sort = prev.sort ? {...prev.sort, type: data} : {type: data}
+                } else if(type === 'sort_direction') {
+                    prev.sort = prev.sort ? {...prev.sort, direction: data} : {direction: data}
+                }
+                updateFilterInStorage(prev);
             }
             return prev;
         })
@@ -97,6 +106,9 @@ export const SearchContextProvider = props => {
     
                 //If results are found, set genre array
                 setFilter(prev => ({...prev, years: _years, genres: res.genres}));
+                if(filterExistsInStorage()) {
+                    setFilter(prev => getFilterFromStorage(prev));
+                }
                 setIsLoaded(true);
              })
         }
