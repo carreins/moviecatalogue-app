@@ -57,11 +57,13 @@ export const SearchContextProvider = props => {
     const filterHandler = (type, data) => {
         setFilter(prev => {
             if(type === 'reset') {
+
                 updateFilterInStorage();
                 prev.years = prev.years.map(year => ({...year, selected: false}));
                 prev.genres = prev.genres.map(genre => ({...genre, selected: false}));
                 prev.sort = {};
             } else {
+
                 if(type === 'year') {
                     prev.years = prev.years.map(year => ({...year, selected: data.some(r => r.id === year.id)}));
                 } else if(type === 'genre') {
@@ -80,9 +82,7 @@ export const SearchContextProvider = props => {
 
     //searchHandler function
     //Used to update search results
-    const searchHandler = (data, loading) => {
-        searchDispatcher({type: 'REFRESH', data: data, isLoading: loading, filter});
-    }
+    const searchHandler = (data, loading) => searchDispatcher({type: 'REFRESH', data: data, isLoading: loading, filter});
 
     //loadYears function
     //Load a default list of years to choose for release year filter
