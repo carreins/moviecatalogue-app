@@ -14,7 +14,7 @@ The project utilizes The Movie Database API, which requires you to provide an AP
 ### How to use
 1. Create a new account on The Movie Database website: https://www.themoviedb.org/
 2. Once you have logged in, you can apply for an API key by clicking the "API" link from the left hand sidebar within your account settings page. You need to have a legitimate business name, address, phone number and description to apply for an API key. Once your request has been approved, you will receive the key.
-3. Create an environment and add 3 parameters:
+3. Create an environment file and add 3 parameters:
     - REACT_APP_API_URL with value https://api.themoviedb.org
     - REACT_APP_API_VERSION with value 3
     - REACT_APP_API_KEY, which will hold the value of your received API key
