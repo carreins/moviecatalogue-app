@@ -47,7 +47,7 @@ const SearchMovies = () => {
     const { searchResults, isLoading, onSearch } = useContext(SearchContext);
 
     const sendSearchRequest = useGetSearchAPIForArray(setError);
-    const { startOrResetTimer, stopAndClearTimer, isComplete } = useCountdownTimer(2);
+    const { startOrResetTimer, stopAndClearTimer, isComplete } = useCountdownTimer(1);
 
 
     /*Functions */
